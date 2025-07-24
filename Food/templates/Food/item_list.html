@@ -1,0 +1,48 @@
+{% extends 'food/base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+  .justify-text {
+    text-align: justify;
+  }
+</style>
+
+<div class="container-fluid py-3">
+    {% for item in items %}
+        <div class="row py-4 border-bottom">
+            <!-- Item Image -->
+            <div class="col-md-3 text-center">
+                <!-- <a href="{% url 'food:item_details' item.id %}"> -->
+                {% if item.item_image %}
+                    <img src="{{ item.item_image.url }}" alt="{{ item.item_name }}"
+                            class="img-fluid rounded" height="250" width="250">
+                {% else %}
+                    <img src="{% static 'food/images/foodie-icon.png' %}" alt="No Image"
+                            class="img-fluid rounded" height="250" width="250">
+                {% endif %}
+                <!-- </a> -->
+            </div>
+
+            <!-- Item Info -->
+            <div class="col-md-7">
+                <ul class="list-unstyled justify-text">
+                    <li class="mb-2">
+                        <h2 class="fw-bold">{{ item.item_name }}</h2>
+                    </li>
+                    <li class="mb-2"><strong>Category:</strong> {{ item.item_category }}</li>
+                    <li class="mb-2"><strong>Description:</strong> {{ item.item_description }}</li>
+                    <li class="mb-2"><strong>Price:</strong> ₹{{ item.item_price }}</li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <a href="{% url 'food:update_item' item.id %}" ><button class="btn btn-primary btn-sm">Update</button></a>
+                <a href="{% url 'food:item_details' item.id %}" ><button class="btn btn-primary btn-sm">Details</button></a>
+                <a href="{% url 'food:delete_item' item.id %}" ><button class="btn btn-danger btn-sm">Delete</button></a>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-muted text-center">No items available.</p>
+    {% endfor %}
+</div>
+{% endblock %}
