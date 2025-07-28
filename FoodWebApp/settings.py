@@ -31,6 +31,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Food.apps.FoodConfig',
+    'Users.apps.UsersConfig',
+    # 'django_widget_tweaks',
+
 ]
 
 MIDDLEWARE = [
@@ -111,6 +114,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+LOGIN_REDIRECT_URL = 'food:item_list'
 
 
 # Default primary key field type

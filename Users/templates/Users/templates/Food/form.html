@@ -1,0 +1,62 @@
+{% extends 'food/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="card shadow-lg rounded-4 p-4">
+        <h2 class="text-center mb-4 text-primary">Add New Food Item</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3 row">
+                <label for="{{ form.item_name.id_for_label }}" class="col-sm-3 col-form-label fw-bold">
+                    Item Name:
+                </label>
+                <div class="col-sm-9">
+                    {{ form.item_name }}
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="{{ form.item_description.id_for_label }}" class="col-sm-3 col-form-label fw-bold">
+                    Description:
+                </label>
+                <div class="col-sm-9">
+                    {{ form.item_description }}
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="{{ form.item_price.id_for_label }}" class="col-sm-3 col-form-label fw-bold">
+                    Price:
+                </label>
+                <div class="col-sm-9">
+                    {{ form.item_price}}
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="{{ form.item_image.id_for_label }}" class="col-sm-3 col-form-label fw-bold">
+                    Image:
+                </label>
+                <div class="col-sm-9">
+                    {{ form.item_image}}
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="{{ form.item_category.id_for_label }}" class="col-sm-3 col-form-label fw-bold">
+                    Category:
+                </label>
+                <div class="col-sm-9">
+                    {{ form.item_category}}
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success px-4 py-2">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
