@@ -25,7 +25,7 @@
             </div>
 
             <!-- Item Info -->
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <ul class="list-unstyled justify-text">
                     <li class="mb-2">
                         <h2 class="fw-bold">{{ item.item_name }}</h2>
@@ -35,7 +35,7 @@
                     <li class="mb-2"><strong>Price:</strong> ₹{{ item.item_price }}</li>
                 </ul>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <a href="{% url 'food:update_item' item.id %}" ><button class="btn btn-primary btn-sm">Update</button></a>
                 <a href="{% url 'food:item_details' item.id %}" ><button class="btn btn-primary btn-sm">Details</button></a>
                 <a href="{% url 'food:delete_item' item.id %}" ><button class="btn btn-danger btn-sm">Delete</button></a>

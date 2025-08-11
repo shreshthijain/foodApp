@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 from django.conf.urls.static import static
 
-app_name = 'food'
+app_name = 'users'
 urlpatterns = [
     # path("register", views.register, name="register"),  
 ]

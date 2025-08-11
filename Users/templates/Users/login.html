@@ -1,16 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends 'Food/base.html' %}
+{% load static %}
+
+{% block body %}
 <body>
     <form method="POST">
         {% csrf_token %}
-        {{form}}
-        <button type="submit" class="btn btn-primary">Submit</button>
+        {% for field in form %}
+          <div class="row mb-3">
+            <label for="{{ field.id_for_label }}" class="col-sm-2 col-form-label">
+              {{ field.label }}{% if field.field.required %}<span class="text-danger"> *</span>{% endif %}:
+            </label>
+            <div class="col-sm-2">
+              {{ field }}
+              {% if field.errors %}
+                <div class="text-danger small">
+                  {{ field.errors|striptags }}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="reset" class="btn btn-danger">Clear</button>
+        </div>
     </form>
 
 </body>
-</html>
+{% endblock %}
