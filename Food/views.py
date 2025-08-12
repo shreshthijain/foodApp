@@ -27,8 +27,12 @@ def item_details(request, id):
 
 def add_item(request):
     form = AddItem(request.POST or None, request.FILES)
+    # form.fields['user'].initial = request.user.username
+
     if form.is_valid():
-        form.save()
+        item = form.save()
+        item.user = request.user
+        item.save()
         return redirect('food:item_list')
     return render(request, 'food/form.html', {'form': form})
 

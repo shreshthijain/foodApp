@@ -32,8 +32,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Food.apps.FoodConfig',
     'Users.apps.UsersConfig',
-    # 'django_widget_tweaks',
-
 ]
 
 MIDDLEWARE = [

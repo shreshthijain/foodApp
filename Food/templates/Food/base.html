@@ -12,8 +12,8 @@
     />
     <link
       rel="icon"
-      type="image/png"
-      href="{% static 'food/images/foodie-icon.png' %}"
+      type="image/svg+xml"
+      href="{% static 'food/images/foodie-icon.svg' %}"
     />
   </head>
 
@@ -54,7 +54,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">Link</a>
+              <a class="nav-link text-light" href="{% url 'food:add_item' %}"
+                >Add Item</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link text-light" aria-disabled="true">Disabled</a>
