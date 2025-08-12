@@ -1,12 +1,20 @@
 from django.shortcuts import redirect, render
-
+from django.core.paginator import Paginator
 from Food.forms import AddItem
-# import django.http as HttpResponse
-
 from .models import Item
+
 # Create your views here.
 def item_list(request):
     items = Item.objects.all()
+
+    item_names = request.GET.get('search_item')
+
+    if item_names != "" and item_names is not None:
+        items = items.filter(item_name__icontains=item_names)
+
+    paginator = Paginator(items, 2)  
+    page = request.GET.get('page')
+    items = paginator.get_page(page)
     context = {
         'items': items
     }
