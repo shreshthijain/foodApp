@@ -112,7 +112,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
-LOGIN_REDIRECT_URL = 'food:item_list'
+LOGIN_REDIRECT_URL = 'food:index'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'login'
 
