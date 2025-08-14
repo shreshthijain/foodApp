@@ -2,8 +2,12 @@ from django.shortcuts import redirect, render
 from django.core.paginator import Paginator
 from Food.forms import AddItem
 from .models import Item
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+def index(request):
+    return render(request, 'Food/index.html')
+
 def item_list(request):
     items = Item.objects.all()
 
@@ -20,6 +24,7 @@ def item_list(request):
     }
     return render(request, 'Food/item_list.html', context=context )
 
+@login_required
 def delete_item(request, id):
     try:
         item = Item.objects.get(id=id)
@@ -33,6 +38,7 @@ def item_details(request, id):
     print(item)
     return render(request, 'Food/details.html', {'item': item})
 
+@login_required
 def add_item(request):
     form = AddItem(request.POST or None, request.FILES)
     # form.fields['user'].initial = request.user.username
@@ -44,7 +50,7 @@ def add_item(request):
         return redirect('food:item_list')
     return render(request, 'food/form.html', {'form': form})
 
-
+@login_required
 def update_item(request, id):
     item = Item.objects.get(id=id)
     form = AddItem(request.POST or None, instance=item)

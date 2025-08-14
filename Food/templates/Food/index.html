@@ -1,0 +1,80 @@
+{% extends 'food/base.html' %}
+{% load static %}
+
+{% block body %}
+<!-- About Hero -->
+<section class="bg-light text-dark py-5 text-center">
+    <div class="container">
+        <h1 class="fw-bold mb-3">Foodler</h1>
+        <p class="lead mx-auto" style="max-width: 700px;">
+            Foodler is your one-stop platform to explore, share, and enjoy delicious meals.
+            Whether you're a food lover searching for the next flavor adventure or a home chef wanting to showcase your creations,
+            FoodApp brings people together over the joy of food.
+        </p>
+    </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="container py-5">
+    <div class="row text-center">
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded shadow-sm h-100">
+                <i class="bi bi-heart-fill text-danger fs-1 mb-3"></i>
+                <h4 class="fw-bold">Our Mission</h4>
+                <p>
+                    To connect food enthusiasts with the best homemade and restaurant dishes,
+                    offering a platform where taste meets technology.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded shadow-sm h-100">
+                <i class="bi bi-lightbulb-fill text-warning fs-1 mb-3"></i>
+                <h4 class="fw-bold">Our Vision</h4>
+                <p>
+                    A world where everyone can share their food stories, explore new cuisines,
+                    and bring communities closer through flavors.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="bg-light py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">Why Choose Foodler?</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <i class="bi bi-star-fill text-warning fs-2 mb-2"></i>
+                <h5>Top Quality</h5>
+                <p>We feature only the best-rated dishes and chefs in your area.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="bi bi-clock-fill text-primary fs-2 mb-2"></i>
+                <h5>Fast & Reliable</h5>
+                <p>Quick updates, fast uploads, and efficient browsing experience.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="bi bi-people-fill text-success fs-2 mb-2"></i>
+                <h5>Community Driven</h5>
+                <p>Join a network of passionate foodies who love to share and explore.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h3 class="fw-bold">Be part of our food journey</h3>
+        <p class="mb-4">Browse our menu or add your own special dish to the community.</p>
+        <a href="{% url 'food:item_list' %}" class="btn btn-primary btn-lg me-2">View Menu</a>
+        <a href="{% url 'food:add_item' %}" class="btn btn-outline-dark btn-lg">Add Your Dish</a>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+
+{% endblock %}
+

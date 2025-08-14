@@ -1,4 +1,5 @@
 
+from django import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -8,7 +9,8 @@ from django.contrib.auth import views as auth_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('food/', include('Food.urls')), 
+    # path('', views.index, name='index'), 
+    path('', include('Food.urls')), 
     path('user/', include('Users.urls')), 
     path('register/', user_view.register, name='register'),
     path('login/', auth_view.LoginView.as_view(template_name='Users/login.html'), name='login'),
